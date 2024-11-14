@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Code check
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '22'
@@ -24,20 +24,17 @@ jobs:
       - name: Install lftp
         run: sudo apt-get install -y lftp
 
-      - name: Build and package the extension
+      - name: Build
         env:
           AMO_JWT_ISSUER: ${{ secrets.AMO_JWT_ISSUER }}
           AMO_JWT_SECRET: ${{ secrets.AMO_JWT_SECRET }}
         run: npm run pack:ff
 
-      - name: Upload XPI to FTP
+      - name: XPI 
         env:
           FTP_HOST: ${{ secrets.HOST }}
           FTP_USER: ${{ secrets.USER }}
           FTP_PASSWORD: ${{ secrets.PASSWORD }}
         run: |
           lftp -u "$FTP_USER","$FTP_PASSWORD" $FTP_HOST <<EOF
-          cd /path/to/your/directory
-          put web-ext-artifacts/*.xpi
-          bye
-          EOF
+  
