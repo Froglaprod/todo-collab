@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "FirstAddon",
+    "version": "0.0.0",
+    "description": "Mon premier addon",
+    "permissions": ["identity"],
+    "host_permissions": [],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "images/icon-16.png",
+            "48": "images/icon-48.png",
+            "128": "images/icon-128.png"
+        }
+    },
+    "icons": {
+        "16": "images/icon-16.png",
+        "48": "images/icon-48.png",
+        "128": "images/icon-128.png"
+    },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "{132f67ae-30a7-45d3-b189-53513ef5b8c5}",
+            "strict_min_version": "109.0"
+        }
+    },
+    "author": "Mathis Botteau"
+}
