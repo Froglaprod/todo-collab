@@ -25,6 +25,6 @@
       "ff": "web-ext run",
       "edge": "web-ext run -t chromium --chromium-binary \"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\"",
       "chrome": "web-ext run -t chromium",
-      "pack:ff": "web-ext sign --api-key=$AMO_JWT_ISSUER --api-secret=$AMO_JWT_SECRET --channel unlisted",
+      "pack:ff": "web-ext sign --api-key=$AMO_JWT_ISSUER --api-secret=$AMO_JWT_SECRET --channel unlisted"
     }
 }
