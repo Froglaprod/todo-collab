@@ -19,7 +19,7 @@ jobs:
           node-version: '22'
 
       - name: npm install
-        working-directory: todo-collab/addon-todo-activité1
+        working-directory: ./addon-todo-activité1
         run: npm install
 
       - name: lftp install
