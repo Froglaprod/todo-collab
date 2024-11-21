@@ -36,5 +36,5 @@ jobs:
           user: ${{ secrets.USER }}
           password: ${{ secrets.PASSWORD }}
         run: |
-          lftp -u "$user","$password" $host <<EOF
+          lftp -u "$user","$password" $host
   
