@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Code check
+      - name: Clone repo
         uses: actions/checkout@v3
 
       - name: Node.js
@@ -18,23 +18,23 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Install npm dependencies
+      - name: npm install
         run: npm install
 
-      - name: Install lftp
+      - name: lftp install
         run: sudo apt-get install -y lftp
 
-      - name: Build
+      - name: build
         env:
           AMO_JWT_ISSUER: ${{ secrets.AMO_JWT_ISSUER }}
           AMO_JWT_SECRET: ${{ secrets.AMO_JWT_SECRET }}
         run: npm run pack:ff
 
-      - name: XPI 
+      - name: xpi setup 
         env:
-          FTP_HOST: ${{ secrets.HOST }}
-          FTP_USER: ${{ secrets.USER }}
-          FTP_PASSWORD: ${{ secrets.PASSWORD }}
+          host: ${{ secrets.HOST }}
+          user: ${{ secrets.USER }}
+          password: ${{ secrets.PASSWORD }}
         run: |
-          lftp -u "$FTP_USER","$FTP_PASSWORD" $FTP_HOST <<EOF
+          lftp -u "$user","$password" $host <<EOF
   
